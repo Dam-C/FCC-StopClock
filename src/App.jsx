@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { chgBreak, chgSession } from "./redux/clockSlice";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <article id="clock-wrapper">
+      <h1 id="clock-title">25 + 5 Clock</h1>
+      <div id="clock-settings">
+        <div id="break-settings">
+          <h2 id="break-label">Break Length</h2>
+          <div id="break-length">
+            {useSelector((state) => state.clock.breakLength)}
+          </div>
+          <div id="break-btns">
+            <div id="break-increment" onClick={() => dispatch(chgBreak(1))}>
+              +1
+            </div>
+            <div id="break-decrement" onClick={() => dispatch(chgBreak(-1))}>
+              -1
+            </div>
+          </div>
+        </div>
+        <div id="session-settings">
+          <h2 id="session-label">Session Length</h2>
+          <div id="session-length">
+            {useSelector((state) => state.clock.sessionLength)}
+          </div>
+          <div id="session-btns">
+            <div id="session-increment" onClick={() => dispatch(chgSession(1))}>
+              +1
+            </div>
+            <div
+              id="session-decrement"
+              onClick={() => dispatch(chgSession(-1))}
+            >
+              -1
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div id="">
+        <h2 id="timer-label">Session </h2>
+        <div id="time-left">Time</div>
+        <div id="clock-btns">
+          <div id="start_stop">Start</div>
+          <div id="reset">Reset</div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </article>
+  );
 }
 
-export default App
+export default App;

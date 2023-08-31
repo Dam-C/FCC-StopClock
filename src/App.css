@@ -1,42 +1,65 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --primary: rgb(154, 59, 59);
+  --secondary: rgb(192, 130, 97);
+  --ternary: rgb(226, 199, 153);
+  --quadruary: rgb(242, 236, 190);
+}
+
+body {
+  height: 100vh;
   text-align: center;
+  background-color: var(--ternary);
+  font-family: "Press Start 2P", cursive;
+  font-size: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  gap: 30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#clock-settings {
+  display: flex;
+  gap: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#break-settings,
+#session-settings {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 20px;
 }
 
-.card {
-  padding: 2em;
+#break-btns,
+#session-btns {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
 }
 
-.read-the-docs {
-  color: #888;
+#break-increment,
+#break-decrement,
+#session-decrement,
+#session-increment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary);
+  color: var(--ternary);
+}
+
+#session-length,
+#break-length {
+  font-size: 30px;
+  color: var(--primary);
 }
