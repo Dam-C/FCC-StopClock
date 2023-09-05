@@ -1,9 +1,21 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { chgBreak, chgSession } from "./redux/clockSlice";
+import {
+  chgBreak,
+  chgSession,
+  resetClock,
+  startSession,
+} from "./redux/clockSlice";
+
+import Timer from "./timer";
 
 function App() {
   const dispatch = useDispatch();
+  const kitKat = useSelector((state) => state.clock.breakTime);
+
+  const handleTimerStart = () => {
+    dispatch(startSession());
+  };
 
   return (
     <article id="clock-wrapper">
@@ -42,11 +54,17 @@ function App() {
         </div>
       </div>
       <div id="">
-        <h2 id="timer-label">Session </h2>
-        <div id="time-left">Time</div>
+        <h2 id="timer-label">{kitKat ? "Break" : "Session"} </h2>
+        <div id="time-left">
+          <Timer />
+        </div>
         <div id="clock-btns">
-          <div id="start_stop">Start</div>
-          <div id="reset">Reset</div>
+          <div id="start_stop" onClick={handleTimerStart}>
+            Start/Pause
+          </div>
+          <div id="reset" onClick={() => dispatch(resetClock())}>
+            Reset
+          </div>
         </div>
       </div>
     </article>

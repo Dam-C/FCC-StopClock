@@ -20,7 +20,6 @@ body {
 #clock-wrapper {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   gap: 30px;
 }
 
@@ -30,11 +29,16 @@ body {
 }
 
 #break-settings,
-#session-settings {
+#session-settings,
+#clock-btns {
   display: flex;
   flex-direction: column;
   width: 200px;
   gap: 20px;
+}
+
+#clock-btns {
+  margin: 20px auto;
 }
 
 #break-btns,
@@ -48,6 +52,7 @@ body {
 #break-decrement,
 #session-decrement,
 #session-increment {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,5 +66,15 @@ body {
 #session-length,
 #break-length {
   font-size: 30px;
+  color: var(--primary);
+}
+
+#start_stop,
+#reset {
+  cursor: pointer;
+}
+
+#start_stop:hover,
+#reset:hover {
   color: var(--primary);
 }
