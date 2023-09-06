@@ -3,30 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import { startSession, resetClock } from "./redux/clockSlice";
 
-/**
- * Recap de la logique
- * minuteur basé sur le state de mon store redux en minute
- *
- *
- *
- *
- * une fois l'état "minuuteur lancé" true
- * > le minuteur decroit progressivement - 1 sec toutes les 1000ms
- * > le minuteur peut être arreté par le bouton start/pause
- * > le minuteur peut être arreté et/ou reinitialisé par le bouton reset
- *
- * si reset
- * > minteur remis aux valeurs initiales
- *
- * une fois le temps à atteint 00:00
- * > le son se lance (4 sec)
- * > apres le son, le "session" devient "break"
- * > le temps affiché passe à celui du state
- * > l'état "minuteur lancé" doit passer en false" pour être relancé
- *
- *
- */
-
 const Timer = () => {
   const dispatch = useDispatch();
   const sessionTime = useSelector((state) => state.clock.sessionLength);
