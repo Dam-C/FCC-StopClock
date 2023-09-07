@@ -20,15 +20,15 @@ function App() {
       <div id="clock-settings">
         <div id="session-settings">
           <h2 id="session-label">Session Length</h2>
-          <div id="session-length">
-            {useSelector((state) => state.clock.sessionLength)}
-          </div>
           <div id="session-btns">
             <div
               id="session-increment"
               onClick={() => dispatch(incrementSession())}
             >
               +1
+            </div>
+            <div id="session-length">
+              {useSelector((state) => state.clock.sessionLength)}
             </div>
             <div
               id="session-decrement"
@@ -40,15 +40,15 @@ function App() {
         </div>
         <div id="break-settings">
           <h2 id="break-label">Break Length</h2>
-          <div id="break-length">
-            {useSelector((state) => state.clock.breakLength)}
-          </div>
           <div id="break-btns">
             <div
               id="break-increment"
               onClick={() => dispatch(incrementBreak())}
             >
               +1
+            </div>
+            <div id="break-length">
+              {useSelector((state) => state.clock.breakLength)}
             </div>
             <div
               id="break-decrement"
